@@ -49,6 +49,9 @@ on fs
     chown system system /sys/class/sec/tsp/multi_count
     chown system system /sys/class/sec/tsp/comm_err_count
 
+on early-fs
+    start vold
+
 on boot
     ifup lo
     hostname localhost
