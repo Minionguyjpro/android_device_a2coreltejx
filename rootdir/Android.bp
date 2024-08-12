@@ -1,0 +1,14 @@
+//
+// Copyright (C) 2024 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+// Init scripts
+// Init configuration files
+// fstab
+prebuilt_etc {
+    name: "fstab.samsungexynos7870",
+    src: "etc/fstab.samsungexynos7870",
+    vendor: true,
+}
