@@ -52,7 +52,6 @@ BOARD_KERNEL_SEPARATED_DT := true
 
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 
-# Use this flag if the board has a ext4 partition larger than 2gb
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -68,11 +67,13 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/13600000.usb/13600000.dwc3/gadg
 TW_BRIGHTNESS_PATH := "/sys/devices/14800000.dsim/backlight/panel/brightness"
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 162
-TW_INPUT_BLACKLIST := "accelerometer"
+TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
+TW_USE_NEW_MINADBD := true
+TW_USE_TOOLBOX := true
 #TW_NO_EXFAT_FUSE := true
-TW_MTP_DEVICE := "/dev/mtp_usb"
+TW_MTP_DEVICE := "/dev/usb_mtp_gadget"
 TW_EXCLUDE_SUPERSU := true
 TW_SCREEN_BLANK_ON_BOOT := true
 
@@ -81,8 +82,12 @@ TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 
 # Encryption support
 TW_INCLUDE_CRYPTO := true
+TW_CRYPTO_USE_SBIN_VOLD := true
 #TW_INCLUDE_CRYPTO_SAMSUNG := true
 #TARGET_HW_DISK_ENCRYPTION := true
+
+TW_INCLUDE_NTFS_3G := true
+TW_INCLUDE_FUSE_EXFAT := true
 
 # Debug flags
 TWRP_INCLUDE_LOGCAT := true
