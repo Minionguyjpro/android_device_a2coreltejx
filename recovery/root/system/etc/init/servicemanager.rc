@@ -1,15 +1,10 @@
-service servicemanager /system/bin/servicemanager
+on init
+    start servicemanager
+
+service servicemanager /sbin/servicemanager
     class core animation
-    user system
-    group system readproc
+    user root
+    group root readproc
     critical
-    onrestart restart healthd
-    onrestart restart zygote
-    onrestart restart audioserver
-    onrestart restart media
-    onrestart restart surfaceflinger
-    onrestart restart inputflinger
-    onrestart restart drm
-    onrestart restart cameraserver
-    writepid /dev/cpuset/system-background/tasks
-    shutdown critical
+    disabled
+    seclabel u:r:recovery:s0

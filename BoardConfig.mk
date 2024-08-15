@@ -3,7 +3,7 @@ DEVICE_PATH := device/samsung/a2corelte
 USE_CAMERA_STUB := true
 
 TARGET_NO_BOOTLOADER := true
-TARGET_BOOTLOADER_BOARD_NAME := universal7870
+TARGET_BOOTLOADER_BOARD_NAME := universal7870_go
 
 # Platform
 TARGET_BOARD_PLATFORM := exynos5
@@ -36,7 +36,7 @@ BOARD_KERNEL_CMDLINE := # Exynos doesn't take cmdline arguments from boot image
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 # 000RU = recovery kernel, 000KU = system kernel
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --second_offset 0x00f00000 --tags_offset 0x00000100
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --second_offset 0x00f00000 --tags_offset 0x00000100 --board SRPSB21A012RU
 
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 0x002000000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x002600000
@@ -72,18 +72,16 @@ TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_USE_NEW_MINADBD := true
 TW_USE_TOOLBOX := true
-#TW_NO_EXFAT_FUSE := true
 TW_MTP_DEVICE := "/dev/usb_mtp_gadget"
 TW_EXCLUDE_SUPERSU := true
-TW_SCREEN_BLANK_ON_BOOT := true
 
 # Color fix
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 
 # Encryption support
 TW_INCLUDE_CRYPTO := true
-#TW_CRYPTO_USE_SBIN_VOLD := true
-#TW_INCLUDE_CRYPTO_SAMSUNG := true
+TW_CRYPTO_USE_SBIN_VOLD := true
+TW_INCLUDE_CRYPTO_SAMSUNG := true
 #TARGET_HW_DISK_ENCRYPTION := true
 
 TW_INCLUDE_NTFS_3G := true

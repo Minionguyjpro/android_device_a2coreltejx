@@ -1,3 +1,5 @@
+import /init.recovery.usb.configfs.rc
+
 on init
     chown system system /sys/class/android_usb/android0/terminal_version
     chmod 0660 /sys/class/android_usb/android0/terminal_version

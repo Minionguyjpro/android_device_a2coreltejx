@@ -1,0 +1,11 @@
+--2024-08-15 14:36:15--  https://raw.githubusercontent.com/Rabikishan001/a2corelte_dump/fe01b6c7f321e48d22fbee30027db0ed1be5e406/boot/ramdisk/init.usb.configfs.rc
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.108.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 7874 (7.7K) [text/plain]
+Saving to: ‘init.usb.configfs.rc.1’
+
+     0K .......                                               100% 1.58M=0.005s
+
+2024-08-15 14:36:15 (1.58 MB/s) - ‘init.usb.configfs.rc.1’ saved [7874/7874]
+
