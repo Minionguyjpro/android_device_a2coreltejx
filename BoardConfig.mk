@@ -59,6 +59,8 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true
 BOARD_CUSTOM_BOOTIMG_MK :=  device/samsung/a2corelte/bootimg.mk
 
+ENABLE_CPUSETS := true
+
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true

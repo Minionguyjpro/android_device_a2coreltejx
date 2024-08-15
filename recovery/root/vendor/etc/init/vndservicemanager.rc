@@ -7,3 +7,4 @@ service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
     onrestart class_restart hal
     onrestart class_restart early_hal
     shutdown critical
+    seclabel u:r:recovery:s0

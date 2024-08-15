@@ -5,3 +5,4 @@ service storaged /system/bin/storaged
     writepid /dev/cpuset/system-background/tasks
     user root
     group package_info
+    seclabel u:r:recovery:s0

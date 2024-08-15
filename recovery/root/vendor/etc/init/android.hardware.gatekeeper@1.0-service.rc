@@ -2,4 +2,4 @@ service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
     class hal
     user system
     group system
-    seclabel u:r:gatekeeper-1-0:s0
+    seclabel u:r:recovery:s0
