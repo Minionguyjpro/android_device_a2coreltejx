@@ -18,6 +18,7 @@ PRODUCT_NAME := omni_a2corelte
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
 
+
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := device/samsung/a2corelte/prebuilt/Image
 else
@@ -33,3 +34,10 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
     $(LOCAL_KERNEL_DTB):dt.img
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    TARGET_DEVICE=a2corelte \
+    PRODUCT_NAME=a2coreltejx \
+    PRIVATE_BUILD_DESC="a2coreltejx-user 8.1.0 OPR6 A260FXXSEAUJ2 release-keys"
+
+BUILD_FINGERPRINT := "samsung/a2coreltejx/a2corelte:8.1.0/OPR6/A260FXXSEAUJ2:user/release-keys"

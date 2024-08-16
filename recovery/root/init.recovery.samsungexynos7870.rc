@@ -21,6 +21,8 @@ on init
     mkdir /cache
     mkdir /efs
     mkdir /sideload
+    mkdir /odm
+    mkdir /omr
     mount tmpfs tmpfs /tmp
 
     chown root shell /tmp
