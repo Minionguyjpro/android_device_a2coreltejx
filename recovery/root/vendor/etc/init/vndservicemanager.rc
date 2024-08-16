@@ -1,4 +1,4 @@
-service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
+service vndservicemanager /sbin/vndservicemanager /dev/vndbinder
     class core
     user system
     group system readproc
