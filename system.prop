@@ -18,3 +18,4 @@ ro.product.device=a2corelte
 ro.product.manufacturer=samsung
 ro.build.PDA=A260FXXSEAUJ2
 ro.build.hidden_ver=A260FXXSEAUJ2
+ro.multisim.simslotcount=2
