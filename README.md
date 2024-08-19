@@ -1,4 +1,13 @@
-# TWRP Device Tree for Samsung Galaxy A2 Core
-This is the device tree for the Samsung Galaxy A2 Core (confirmed to work in normal circumstances on the SM-A260F, untested on the SM-A260G. Feel free to do so and let me know!) for use Sith TWRP. Includes a prebuilt kernel recompiled by me to allow LZMA ramdisk compression.
-## How to Compile
-W.I.P.
+# TWRP device tree for Galaxy A2 Core
+Add to ``.repo/local_manifests/a2corelte.xml``:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<project path="device/samsung/a2corelte" name="android_device_samsung_a2corelte" remote="TeamWin" revision="android-9.0" />
+</manifest>
+```
+
+Then run ``repo sync`` to check it out.
+
+Kernel sources are available at: https://github.com/Minionguyjpro/android_kernel_samsung_exynos7870
