@@ -1,1 +1,2 @@
 add_lunch_combo omni_a2corelte-eng
+add_lunch_combo omni_a2corelte-userdebug
