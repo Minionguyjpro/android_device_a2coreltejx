@@ -13,5 +13,6 @@ PRODUCT_PACKAGES += \
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := a2corelte
 PRODUCT_NAME := omni_a2corelte
+PRODUCT_MODEL := Galaxy A2 Core (2019)
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
