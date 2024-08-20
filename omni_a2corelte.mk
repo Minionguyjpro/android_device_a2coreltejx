@@ -31,10 +31,6 @@ else
 LOCAL_KERNEL_DTB := $(TARGET_PREBUILT_DTB)
 endif
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel \
-    $(LOCAL_KERNEL_DTB):dt.img
-
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE=a2corelte \
     PRODUCT_NAME=a2coreltejx \
