@@ -74,10 +74,9 @@ TW_INCLUDE_CRYPTO := true
 
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_a2corelte
+TARGET_RECOVERY_DEVICE_MODULES := libinit_a2corelte
 TARGET_LIBINIT_DEFINES_FILE := device/samsung/a2corelte/init/init_a2corelte.cpp
 
-# Additional Libraries
-TARGET_RECOVERY_DEVICE_MODULES += libinit_a2corelte
 #RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libicui18n.so
 
 # Debug flags
