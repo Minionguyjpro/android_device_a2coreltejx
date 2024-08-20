@@ -13,6 +13,10 @@ LZMA_BIN := $(shell which lzma)
 
 FLASH_IMAGE_TARGET ?= $(PRODUCT_OUT)/recovery.tar
 
+ifdef TARGET_PREBUILT_DTB
+	BOARD_MKBOOTIMG_ARGS += --dt $(TARGET_PREBUILT_DTB)
+endif
+
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 		$(recovery_ramdisk) \
 		$(recovery_uncompressed_ramdisk) \
