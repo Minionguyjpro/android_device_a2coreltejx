@@ -86,7 +86,7 @@ on init
     chmod 0664 /dev/cpuset/top-app/tasks
     chmod 0664 /dev/cpuset/tasks
 
-service keystore /system/bin/keystore /data/misc/keystore
+service keystore /sbin/keystore /data/misc/keystore
     class main
     user keystore
     group keystore drmrpc readproc system
@@ -119,6 +119,19 @@ on fs
     chown radio system /efs
     chown radio system /cpefs
     chmod 0771 /cpefs
+
+    service keystore_auth /system/bin/keystore_auth
+    oneshot
+    user system
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+    service keystore /system/bin/keystore /tmp/misc/keystore
+    user root
+    group root drmrpc readproc log
+    disabled
+    seclabel u:r:recovery:s0
 
 on boot
     ifup lo
