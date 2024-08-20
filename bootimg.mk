@@ -11,6 +11,7 @@
 
 LZMA_BIN := $(shell which lzma)
 
+FLASH_IMAGE_TARGET ?= $(PRODUCT_OUT)/recovery.tar
 
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 		$(recovery_ramdisk) \
@@ -24,6 +25,8 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 	$(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) $(BOARD_MKBOOTIMG_ARGS) --output $@
 	@echo -e ${CL_CYN}"----- Made recovery image -------- $@"${CL_RST}
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)
+	$(hide) tar -C $(PRODUCT_OUT) -H ustar -c recovery.img > $(FLASH_IMAGE_TARGET)
+	@echo "------- Made flashable image: $(FLASH_IMAGE_TARGET) -------"
 
 #####################################################################
 ######### Compress kernel ramdisk using LZMA LehKeda Edit ###########
