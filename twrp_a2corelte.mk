@@ -14,6 +14,24 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/twrp_a2corelte.mk
+# Release name
+PRODUCT_RELEASE_NAME := a2corelte
 
-COMMON_LUNCH_CHOICES := twrp_a2corelte-eng
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/twrp/config/common.mk)
+
+# Device identifier
+PRODUCT_DEVICE := $(PRODUCT_RELEASE_NAME)
+PRODUCT_NAME := twrp_$(PRODUCT_DEVICE)
+PRODUCT_BRAND := samsung
+PRODUCT_MANUFACTURER := samsung
+
+# API
+PRODUCT_SHIPPING_API_LEVEL := 27
+
+# Forcefully add mtp support (adb is already there)
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp
