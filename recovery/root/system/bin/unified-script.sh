@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/sbin/sh
 # automatically set device props for unified tree shared-hardware models/variants
 
 
