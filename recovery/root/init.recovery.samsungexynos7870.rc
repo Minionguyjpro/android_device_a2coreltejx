@@ -1,3 +1,9 @@
+service unified-script /system/bin/unified-script.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
 
 on early-init
     # Set the security context of /postinstall if present.
@@ -134,11 +140,9 @@ on fs
     seclabel u:r:recovery:s0
 
 on boot
-    ifup lo
-    hostname localhost
-    domainname localdomain
-
-    class_start default
+    # Unified device script
+    chmod 0777 /system/bin/unified-script.sh
+    start unified-script
 
     # MMC
     chown system system /sys/block/mmcblk0/device/unique_number
