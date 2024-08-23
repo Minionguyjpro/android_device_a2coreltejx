@@ -24,10 +24,10 @@ variant=$(getprop ro.bootloader)
 echo "Running unified/variant script with $variant..." >> /tmp/recovery.log
 
 case $variant in
-    A260F)
+    A260F*)
         load_a260f
         ;;
-    A260G)
+    A260G*)
         load_a260g
         ;;
     *)  # Fallback
