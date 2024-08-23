@@ -54,7 +54,7 @@ PLATFORM_VERSION := 8.1.0
 PLATFORM_SECURITY_PATCH := 2021-10-01
 
 # Extras
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_SYSTEM_PROP += $(LOCAL_PATH)/system.prop
 TW_INCLUDE_RESETPROP := true
 
 # TWRP specific build flags
