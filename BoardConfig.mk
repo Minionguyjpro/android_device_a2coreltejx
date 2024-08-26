@@ -39,13 +39,14 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_PREBUILT_KERNEL := device/samsung/a2corelte/prebuilt/Image
 TARGET_PREBUILT_DTB := device/samsung/a2corelte/prebuilt/dtb.img
 
-# Use this flag if the board has a ext4 partition larger than 2gb
+# Use this flag if the board has an ext4 partition larger than 2gb
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_SUPPRESS_SECURE_ERASE := true
-BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true
-BOARD_CUSTOM_BOOTIMG_MK :=  device/samsung/a2corelte/bootimg.mk
+#BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true
+#BOARD_CUSTOM_BOOTIMG_MK :=  device/samsung/a2corelte/bootimg.mk
+LZMA_RAMDISK_TARGETS := recovery
 
 PLATFORM_VERSION := 8.1.0
 PLATFORM_SECURITY_PATCH := 2021-10-01
