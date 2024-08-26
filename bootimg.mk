@@ -9,6 +9,8 @@
 ########## Compress recovery ramdisk using LZMA #####################
 #####################################################################
 
+export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true 
+
 LZMA_BIN := $(shell which lzma)
 
 FLASH_IMAGE_TARGET ?= $(PRODUCT_OUT)/recovery.tar
