@@ -49,6 +49,10 @@ BOARD_CUSTOM_BOOTIMG_MK :=  device/samsung/a2corelte/bootimg.mk
 PLATFORM_VERSION := 8.1.0
 PLATFORM_SECURITY_PATCH := 2021-10-01
 
+# Extras
+TARGET_SYSTEM_PROP += device/samsung/a2corelte/system.prop
+TW_INCLUDE_RESETPROP := true
+
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
@@ -72,12 +76,10 @@ TW_INCLUDE_CRYPTO := true
 #TW_INCLUDE_CRYPTO_SAMSUNG := true
 #TARGET_HW_DISK_ENCRYPTION := true
 
-TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_a2corelte
-TARGET_RECOVERY_DEVICE_MODULES := libinit_a2corelte
-TARGET_LIBINIT_DEFINES_FILE := device/samsung/a2corelte/init/init_a2corelte.cpp
+# Additional Libraries
+TARGET_RECOVERY_DEVICE_MODULES += libicui18n
 
-#RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libicui18n.so
+RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libicui18n.so
 
 # Debug flags
 TWRP_INCLUDE_LOGCAT := true

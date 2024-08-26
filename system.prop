@@ -9,6 +9,4 @@ dev.usbsetting.embedded=On
 ro.security.icd.flagmode=multi
 ro.hardware.keystore=mdfpp
 ro.security.keystore.keytype=gak
-ro.product.brand=samsung
-ro.product.manufacturer=samsung
 ro.multisim.simslotcount=2

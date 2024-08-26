@@ -1,3 +1,11 @@
+import /android.hardware.drm@1.0-service.widevine.rc
+
+service unified-script /system/bin/unified-script.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
 
 on early-init
     # Set the security context of /postinstall if present.
@@ -86,7 +94,7 @@ on init
     chmod 0664 /dev/cpuset/top-app/tasks
     chmod 0664 /dev/cpuset/tasks
 
-service keystore /system/bin/keystore /data/misc/keystore
+service keystore /sbin/keystore /data/misc/keystore
     class main
     user keystore
     group keystore drmrpc readproc system
@@ -120,12 +128,23 @@ on fs
     chown radio system /cpefs
     chmod 0771 /cpefs
 
-on boot
-    ifup lo
-    hostname localhost
-    domainname localdomain
+    service keystore_auth /system/bin/keystore_auth
+    oneshot
+    user system
+    group root
+    disabled
+    seclabel u:r:recovery:s0
 
-    class_start default
+    service keystore /system/bin/keystore /tmp/misc/keystore
+    user root
+    group root drmrpc readproc log
+    disabled
+    seclabel u:r:recovery:s0
+
+on boot
+    # Unified device script
+    chmod 0777 /system/bin/unified-script.sh
+    start unified-script
 
     # MMC
     chown system system /sys/block/mmcblk0/device/unique_number
