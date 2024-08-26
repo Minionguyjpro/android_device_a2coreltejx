@@ -9,8 +9,6 @@
 ########## Compress recovery ramdisk using LZMA #####################
 #####################################################################
 
-export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true 
-
 LZMA_BIN := $(shell which lzma)
 
 FLASH_IMAGE_TARGET ?= $(PRODUCT_OUT)/recovery.tar
@@ -23,6 +21,7 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 		$(recovery_ramdisk) \
 		$(recovery_uncompressed_ramdisk) \
 		$(recovery_kernel)
+	export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
 	@echo -e ${CL_CYN}"----- Compressing recovery ramdisk with lzma ------"${CL_RST}
 	rm -f $(recovery_uncompressed_ramdisk).lzma
 	$(LZMA_BIN) $(recovery_uncompressed_ramdisk)
@@ -41,9 +40,11 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 LZMA_BOOT_RAMDISK := $(PRODUCT_OUT)/ramdisk-lzma.img
 
 $(LZMA_BOOT_RAMDISK): $(BUILT_RAMDISK_TARGET)
+	export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true 
 	gunzip -f < $(BUILT_RAMDISK_TARGET) | lzma -e > $@
 
  $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_FILES) $(LZMA_BOOT_RAMDISK)
+	export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true 
 	$(call pretty,"Target boot image: $@")
 	$(hide) $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_ARGS) $(BOARD_MKBOOTIMG_ARGS) --output $@ --ramdisk $(LZMA_BOOT_RAMDISK)
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_BOOTIMAGE_PARTITION_SIZE),raw)
