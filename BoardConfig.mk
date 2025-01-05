@@ -65,5 +65,8 @@ VENDOR_SECURITY_PATCH := 2021-10-01
 # VINTF
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
+# Allow duplicate rules
+BUILD_BROKEN_DUP_RULES := true
+
 # Inherit the proprietary files
 include vendor/samsung/a2corelte/BoardConfigVendor.mk
